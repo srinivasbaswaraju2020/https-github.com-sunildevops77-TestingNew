@@ -1,32 +1,26 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+package com.example.camera;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
+import android.content.Context;
 
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-public class Testing {
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		HtmlUnitDriver driver=new HtmlUnitDriver(BrowserVersion.FIREFOX_38);
-		driver.get("http://172.31.33.31:8080/qapath/");
-		System.out.println(driver.getCurrentUrl());
-		String expmsg="Hello, World!";
-		String actmsg=driver.findElement(By.xpath("html/body")).getText();
-		System.out.println("Expected Message : "+expmsg);
-		System.out.println("Actual Message   : "+actmsg);
-		if(expmsg.equals(actmsg))
-		{
-			System.out.println("Testing has Passed");
-		}
-		else
-		{
-			System.out.println("Testing has Failed");
-		}
-		driver.close();		
+import static org.junit.Assert.*;
 
-	}
-
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+@RunWith(AndroidJUnit4.class)
+public class ExampleInstrumentedTest {
+    @Test
+    public void useAppContext() {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        assertEquals("com.example.cameraxexample", appContext.getPackageName());
+    }
 }
